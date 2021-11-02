@@ -24,6 +24,7 @@ public class Target : MonoBehaviour
     	formulas = targetB.getFormulas();
        	index = targetB.getIndex();
        	formulaText.text = formulas[index];
+       	Reset();
     }
 
     void Update(){
@@ -34,9 +35,9 @@ public class Target : MonoBehaviour
     }
 
     void Reset(){
-    	int x = Random.Range(40,60);
+    	int x = Random.Range(10,120);
     	int y = Random.Range(-25,-13);
-    	int z = Random.Range(10, 20);
+    	int z = Random.Range(10, 40);
     	GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y, z);
        	index = targetB.getIndex();
        	formulaText.text = formulas[index];

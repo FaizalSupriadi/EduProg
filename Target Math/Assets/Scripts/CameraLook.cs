@@ -10,6 +10,8 @@ public class CameraLook : MonoBehaviour
 	public Transform playerBody;
 	float xRotation = 0f;
 	float yRotation = 0f;
+	int speed = 10;
+	int limit =0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,15 +24,37 @@ public class CameraLook : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        if(Input.GetKeyDown("a")){
+        	if(limit != 6){
+        		transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z );
+				playerBody.position = new Vector3(playerBody.position.x - speed, playerBody.position.y, playerBody.position.z );
+				limit += 1;
+        	}
+        	
+        }
+
+        if(Input.GetKeyDown("d")){
+        	if(limit != -6){
+	        	transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z );
+				playerBody.position = new Vector3(playerBody.position.x + speed, playerBody.position.y, playerBody.position.z);
+				limit -= 1;
+        	}
+
+        	
+        }    
         if(Input.GetMouseButtonDown(1)){
 
         	transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 10);
+			playerBody.position = new Vector3(playerBody.position.x, playerBody.position.y, playerBody.position.z + 10);
 
         	
         }
         else if(Input.GetMouseButtonUp(1)){
         	transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
-        }
+        	playerBody.position = new Vector3(playerBody.position.x, playerBody.position.y, playerBody.position.z - 10);
+
+        }    
+
         xRotation -= mouseY;
         yRotation += mouseX;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
