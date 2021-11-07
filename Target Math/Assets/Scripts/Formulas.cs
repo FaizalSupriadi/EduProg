@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This contains the functions to create a list of formulas and the answers.
 public class TemplateFormula{
 	private List<float> answers = new List<float>();
     private List<string> formulas = new List<string>();
@@ -48,16 +49,6 @@ public class Formulas : MonoBehaviour
         template = new TemplateFormula();
 		createGame();
 
-		// List<float> ans = getAnswers();
-		// List<string> form = getFormulas();
-		// foreach (float answer in ans)  
-  //       {  
-  //           Debug.Log(answer); 
-  //       }
-		// foreach (string f in form)  
-  //       {  
-  //           Debug.Log(f); 
-  //       }
     }
 
     public void setLevel(int lvl){
@@ -70,7 +61,7 @@ public class Formulas : MonoBehaviour
     public void Reset(){
     	template.Reset();
     }
-
+    // This will create the answers and formulas randomly between 1 to 99, the level influences the difficulty.
     public void createGame(){
     	for (int i = 0; i < formulaLimit; i++){
           int x = Random.Range(1,99);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This class will handle the interaction between the object shot and the current answer.
 public class Gun : MonoBehaviour
 {
     public Camera fpsCam;
@@ -17,7 +18,7 @@ public class Gun : MonoBehaviour
         answers = formulas.getAnswers();
     }
 
-    // Update is called once per frame
+    // This will check if the player scrolls and will change the current answer.
     void Update()
     {
         answers = formulas.getAnswers();
@@ -40,8 +41,9 @@ public class Gun : MonoBehaviour
                 }                                        
 
     }
-
+    // This function will shoot a raycast, if it hits an object of the correct type, it will use its Hit() function.
     void Shoot(){
+        FindObjectOfType<AudioManager>().Play("gunSfx");
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit )){
             Target target = hit.transform.GetComponent<Target>();

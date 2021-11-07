@@ -19,7 +19,7 @@ public class CameraLook : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // This handles the camera look and walking
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;

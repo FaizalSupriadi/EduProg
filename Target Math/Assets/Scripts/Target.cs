@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class Target : MonoBehaviour
 {
-	public TargetBehaviour targetB;
+	public GameBehaviour targetB;
 	public TMP_Text formulaText;
 	RectTransform textT;
 	List<string> formulas;
@@ -18,7 +18,7 @@ public class Target : MonoBehaviour
        Init();
 
     }
-
+    // Get the needed data from the gamebehaviour
     void Init(){
     	level = targetB.getLevel();
     	formulas = targetB.getFormulas();
@@ -26,14 +26,14 @@ public class Target : MonoBehaviour
        	formulaText.text = formulas[index];
        	Reset();
     }
-
+    // Check if this target needs to be reset when a new level is created
     void Update(){
     	if(level < targetB.getLevel()){
        		Init();
        		Reset();
     	}
     }
-
+    // Randomly place the target in the given x,y and z coordinates and give it a new formula.
     void Reset(){
     	int x = Random.Range(10,120);
     	int y = Random.Range(-25,-13);
@@ -42,12 +42,16 @@ public class Target : MonoBehaviour
        	index = targetB.getIndex();
        	formulaText.text = formulas[index];
     }
-
+    // When hit by the gun, check if the index of the gun is the same as this target. If they are, the answer and formula are correct.
     public void Hit(int idx){
+
     	if(idx == index){
+        FindObjectOfType<AudioManager>().Play("TargetRightSfx");
     		targetB.addScore();
     		Debug.Log("Shot!");
     		Reset();
-    	}
+    	}else{
+        FindObjectOfType<AudioManager>().Play("TargetWrongSfx");
+      }
     }
 }
