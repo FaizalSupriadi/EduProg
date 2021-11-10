@@ -52,6 +52,7 @@ public class Target : MonoBehaviour
     		Reset();
     	}else{
         FindObjectOfType<AudioManager>().Play("TargetWrongSfx");
+        Debug.Log("Wrong Answer!");
       }
     }
 }

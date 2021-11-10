@@ -45,11 +45,14 @@ public class Gun : MonoBehaviour
     void Shoot(){
         FindObjectOfType<AudioManager>().Play("gunSfx");
         RaycastHit hit;
+
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit )){
             Target target = hit.transform.GetComponent<Target>();
             if(target != null){
+                Debug.Log(hit.transform.name);
                 target.Hit(index);
             }
         }
     }
+
 }
