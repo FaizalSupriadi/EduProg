@@ -1,4 +1,4 @@
-# EduProg - Kort Verslag
+# EduProg - Verslag
 # 1. Architectuur
 Het spel is met een koor doel bedacht: Het uitrekenen van formules. Daaruit kwam het idee om doelen te schieten die formules hebben, waarbij de speler dan het juiste antwoord moet geven.
 # 2. Libraries
