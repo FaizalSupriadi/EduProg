@@ -8,5 +8,6 @@ Hierbij is raycast gebruikt om de link te krijgen tussen jouw antwoord en de for
 # 4. Scenes
 ## 4.1 Menu Scene
 Deze scene bevat de optie om naar andere scenes of canvasses te gaan. Zo kan je naar de game scene of tutorial laten zien, maar ook het spel uitzetten.
+Ook speelt hier de Main Theme muziekje die dan de hele tijd door gaan lussen. Dit liedje is zelf gemaakt, echter zijn de rest van de geluiden/sfx gevonden op het internet.
 ## 4.2 Game Scene
 Deze scene bevat alle gameplay. Hier moet men de targets gaan schieten met het juiste antwoord.
